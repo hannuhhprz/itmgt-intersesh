@@ -263,6 +263,8 @@ def scytale_decipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
+    
+    #This code was created with the aid of ChatGPT but modified based on my understanding
     def scytale_decipher(message, shift):
     lenm = len(message)
     dm = ""
