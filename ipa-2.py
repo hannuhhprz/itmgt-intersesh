@@ -44,10 +44,13 @@ def shift_letter(letter, shift):
     for i in alphabet:
         if actual_l != " ":
             if actual_s <= 26:
-                output = alphabet[actual_s]
+                output = alphabet[actual_s-1]
             elif actual_s > 26:
-                actual_s = actual_s%26
-                output = alphabet[actual_s]
+                idx_num = alphabet.index(actual_l) + actual_s%26
+                
+                if idx_num >26:
+                    idx_num = idx_num - 26
+                output = alphabet[idx_num]
         else:
             output = " "
     return output
@@ -167,11 +170,20 @@ def vigenere_cipher(message, key):
     kl = list(key)
     lenm = len(ml)
     lenk = len(kl)
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    initial = ""
     final = ""
-    for i in range(len(ml)):
-        k = key[i%lenk]
-        final = final + k
-        
+    for i in ml:
+        k = key[ml.index(i)%lenk]
+        initial = initial + k
+
+    for o in range(lenm):
+        if ml[o] != " ":
+            alphabet_index = (alphabet.index(ml[o])+ alphabet.index(initial[o])) % len(alphabet)
+            ml[o] = alphabet[alphabet_index]
+            
+    final = ''.join(ml)
+
     return final
 
 def scytale_cipher(message, shift):
