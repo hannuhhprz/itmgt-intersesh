@@ -33,22 +33,22 @@ def savings(gross_pay, tax_rate, expenses):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    def savings(gross_pay, tax_rate, expenses):
-        gross = int(gross_pay)
-        tr = float(tax_rate)
-        exp = int(expenses)
 
-        tax = int(gross*tr)
-        tira = gross-tax-exp
-        actu = int(tira)
+    gross = int(gross_pay)
+    tr = float(tax_rate)
+    exp = int(expenses)
 
-        while True:
-            if tax_rate <0:
-                return "Error"
-            elif tax_rate > 1:
-                return "Error"
-            else:
-                return actu
+    tax = int(gross*tr)
+    tira = gross-tax-exp
+    actu = int(tira)
+
+    
+    if tax_rate <0:
+        return "Error"
+    elif tax_rate > 1:
+        return "Error"
+    else:
+        return actu
 
 
 
